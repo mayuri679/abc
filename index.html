@@ -1,26 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/js.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JavaScript - Flash Cards</title>
-  <meta name="description"
-    content="React application consisting of flashcards with predefined questions and answers in JavaScript that users can flip through to test their knowledge." />
-  <meta property="og:title" content="JavaScript - Flash Cards" />
-  <meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.png" />
-  <meta property="og:description"
-    content="React application consisting of flashcards with predefined questions and answers in JavaScript that users can flip through to test their knowledge." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Cards</title>
+    <style>
+        [12:22 pm, 05/03/2025] Mayuri: body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
 
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.flashcard {
+    background: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.flashcard:hover {
+    transform: scale(1.02);
+}
+
+.question {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.answer {
+    display: none;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+    </style>
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+    <div class="container">
+        <h2>Flash Cards</h2>
+        <div class="flashcard" onclick="toggleAnswer(0)">
+            <p class="question">What is the difference between var, let, and const?</p>
+            <p class="answer">In JavaScript, var is function-scoped and can be re-declared; let and const are block-scoped, with let allowing re-assignment and const preventing it. However, const objects can have their contents modified.</p>
+        </div>
 
+        <div class="flashcard" onclick="toggleAnswer(1)">
+            <p class="question">What is a closure in JavaScript?</p>
+            <p class="answer">A closure is a function that remembers the variables from its outer scope even after the outer function has finished executing.</p>
+        </div>
+
+        <div class="flashcard" onclick="toggleAnswer(2)">
+            <p class="question">What is event bubbling in JavaScript?</p>
+            <p class="answer">Event bubbling is a type of event propagation where the event starts from the target element and bubbles up to its parent elements.</p>
+        </div>
+    </div>
+
+    <script >
+        function toggleAnswer(index) {
+    const answers = document.querySelectorAll(".answer");
+    if (answers[index].style.display === "none" || answers[index].style.display === "") {
+        answers[index].style.display = "block";
+    } else {
+        answers[index].style.display = "none";
+    }
+}
+    </script>
+</body>
 </html>
